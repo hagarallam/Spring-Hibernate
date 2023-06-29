@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container col-4" style="background-color: #e7f0f7">
+        <h1>Login</h1>
+        <hr/>
+
+        <form action="#" th:action="@{/authenticateTheUser}" method="POST" class="form-horizontal">
+
+
+            <!--  if there is an error  -->
+            <div th:if="${param.error}"  class="alert alert-danger">
+
+                <p>You Entered invalid username/password !</p>
+            </div>
+
+
+            <!--  if logout  -->
+            <div th:if="${param.logout}"  class="alert alert-dark">
+
+                <p>You are logged out !</p>
+            </div>
+
+            <!-- username input -->
+            <div class="form-outline mb-4">
+                User Name
+                <input type="text" name="username" class="form-control col-6" />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                Password
+                <input type="password" name="password"  class="form-control col-6" />
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary col-3 mb-4">Login</button>
+
+        </form>
+
+    </div>
+</body>
+</html>
